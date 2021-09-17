@@ -71,7 +71,7 @@ const send = async (
         const feedItems = toSend;
         subscribers.map(async (subscribe) => {
             const userId = subscribe.user_id;
-            let text = `/rssmirror `;
+            let text = `/music `;
             feedItems.forEach(function (item) {
                 text += `${item.link.trim()} \n\n<b>Title:</> ${sanitize(item.title)}\n<b>Feed From</b>: ${sanitize(feed.feed_title)}`;
             });
