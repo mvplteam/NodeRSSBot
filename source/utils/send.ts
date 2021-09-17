@@ -71,7 +71,7 @@ const send = async (
         const feedItems = toSend;
         subscribers.map(async (subscribe) => {
             const userId = subscribe.user_id;
-            let text = `<b>${sanitize(feed.feed_title)}</b>`;
+            let text = ``;
             feedItems.forEach(function (item) {
                 text += `/mirror {item.link.trim()}`;
             });
