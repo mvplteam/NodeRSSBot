@@ -3,6 +3,7 @@ import {
     deleteSubscribersByUserId
 } from '../proxies/subscribes';
 import logger from './logger';
+import sanitize from './sanitize';
 import { config } from '../config';
 import Telegraf, { Context } from 'telegraf';
 import { Feed, FeedItem } from '../types/feed';
@@ -70,9 +71,9 @@ const send = async (
         const feedItems = toSend;
         subscribers.map(async (subscribe) => {
             const userId = subscribe.user_id;
-            let text = ``;
+            let text = `/mirror ${item.link.trim()}\n\n${sanitize(feed.feed_title)} `;
             feedItems.forEach(function (item) {
-                text += `/mirror {item.link.trim()}`;
+                text += `${sanitize(item.title)}`;
             });
             try {
                 await bot.telegram.sendMessage(userId, text, {
