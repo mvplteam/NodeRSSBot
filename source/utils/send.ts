@@ -3,7 +3,6 @@ import {
     deleteSubscribersByUserId
 } from '../proxies/subscribes';
 import logger from './logger';
-import sanitize from './sanitize';
 import { config } from '../config';
 import Telegraf, { Context } from 'telegraf';
 import { Feed, FeedItem } from '../types/feed';
